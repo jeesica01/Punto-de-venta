@@ -1,0 +1,46 @@
+.text-Estilo{
+	color: #97c93e !important;
+}
+#header img{
+	width: 40px;
+}
+#header {
+	height: 100px;
+}
+#main .carousel-inner img{
+	max-height: 100vh;
+	object-fit: cover;
+}
+#footer{
+	background: linear-gradient(90deg,#0B173B,#08088A 25%,#5882FA);
+}
+#footer a{
+	color: white;
+}
+#carousel .overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgb(0, 0, 0, 0.5);
+	color: white;
+}
+#carousel .overlay .container, 
+#carousel .overlay .row{
+	height: 100%;
+}
+.btn-Estilo {
+	background-color: #2C9FE0;
+	color: white;
+}
+.btn-Estilo:hover {
+	background-color: #C97FF5;
+}
+#place-time{
+	background-image:url("imagenes/fondo pantallas.jpg");
+	color: white;
+}
+#place-time img{
+	max-width: 100%;
+}
