@@ -7,6 +7,91 @@
 
 <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+<script Language="JavaScript">
+<!--
+
+function valida_envia()
+{
+ if (document.fvalida.nombre.value.length==0)
+{
+ alert("Escribe el nombre o busca a quien se a realizar la venta");
+ document.fvalida.nombre.focus(); //ubica el cursor en la caja nombre
+ return 0; //no avanza a commit
+ }
+ //cantidad
+ c = document.fvalida.c.value;
+ c = validarEntero(c);
+ document.fvalida.c.value=c;
+ if (c==""){
+ alert("Tiene que introducir la cantidad")
+ document.fvalida.c.focus();
+ return 0;
+}
+ function validarEntero(valor){
+
+valor = parseInt(valor)
+/* Se comprobará si el valor es un número */
+if (isNaN(valor)) {
+/* Si no lo es, se devuelve una cadena vacía */
+return "";
+}else{
+/* De lo contrario se devuelve el número */
+return valor;
+}
+}
+
+//Fecha
+var txtFecha = document.getElementById('fecha').value;
+
+ if(!isNaN(txtFecha)){
+      alert('ERROR: Debe elegir una fecha');
+       document.fvalida.txtFecha.focus();
+      return false;
+    }
+//Costo
+costo = document.fvalida.costo.value;
+ costo = validateDecimal(costo);
+ document.fvalida.costo.value=costo;
+ if (costo==""){
+ alert("Introduce el costo")
+ document.fvalida.costo.focus();
+ return 0;
+}
+function validateDecimal(valor) {
+    valor = parseFloat(valor)
+if (isNaN(valor)) {
+return "";
+}else{
+return valor;
+}
+}
+//Descripcion
+ if (document.fvalida.descripcion.value.length==0)
+{
+ alert("ERROR: Descripcion vacia");
+ document.fvalida.descripcion.focus(); //ubica el cursor en la caja nombre
+ return 0; //no avanza a commit
+ }
+//Total
+total = document.fvalida.total.value;
+ total = validateDecimal(total);
+ document.fvalida.total.value=total;
+ if (total==""){
+ alert("Intorduce el Total")
+ document.fvalida.total.focus();
+ return 0;
+}
+
+ //el formulario se envia usando el método submit() activándolo desde aquí
+ alert("Se ha registrado una venta");
+ document.fvalida.submit();
+}
+        
+    </script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -74,40 +159,41 @@
                     </main>
                 </div>
  <div class="col-12 col-lg-7 pt-2 pb-2">
-    <form >
+
+    <form name="fvalida"  method="get">
         <div class="form-group" align="center">
             <h1>Ventas</h1>
             <br><br> 
              <div class="form-group row">
-              <input type="email"id="inputEmail3" placeholder="Nombre" aling="right">
+              <input type="email"id="inputEmail3" placeholder="Nombre" aling="right" name="Nombre">
               <div class="col-sm-2">
                 <a href="#">
                <img src="imagenes/buscar.png">
               </div>
             </div>
             <div class="form-group row">
-
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre">
+                <input type="text"  size="30 " name="nombre" maxlength="100" class="form-control" id="inputEmail3" placeholder="Nombre">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Cantidad</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad"  name="c" size="3" maxlength="2">
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha</label>
+              <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
               <div class="col-sm-3"> 
-                <input type="text" class="form-control" id="inputEmail3" placeholder="      /       /    ">
+    <input id="fecha" name="fecha" type="date" class="form-control">
+                 
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Costo</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="$">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="costo">
               </div>
               <label for="inputEmail3" class="col-sm-2 col-form-label">Anticipo</label>
               <div class="col-sm-2">
@@ -115,10 +201,9 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
+              <label for="inputEmail3" class="col-sm-2 col-form-label" onChange="función a ejecutar">Descripcion</label>
               <div class="col-sm-5">
-                <textarea>
-                  
+                <textarea id="inputEmail3"  type=textarea name=descripcion>
                 </textarea>
                 <a href="#">
               
@@ -129,13 +214,13 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Total:</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="$">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="total">
               </div>
                
             </div> 
            
 
-</form>
+
 
 </div>
 </div>
@@ -144,7 +229,10 @@
         
  <section id="speakers">
         <div class="container" align="right">
-           <img src="imagenes/guardar.png"><br>
+
+          <img src="imagenes/guardar.png" type="button" value="Enviar" onclick="valida_envia()"><br>
+
+</form>
                   <img src="imagenes/actualizar.png">
             <div class="row">
 
@@ -225,5 +313,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
      <script src="index.js"></script>   
+
+
+
+
+
 </body>
 </html>

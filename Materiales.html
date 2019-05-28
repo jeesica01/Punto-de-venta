@@ -1,6 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <script Language="JavaScript">
+    
+<!--
+function valida_envia()
+{
+ if (document.fvalida.nombre.value.length==0)
+{
+ alert("Escribe el nombre del material");
+ document.fvalida.nombre.focus(); //ubica el cursor en la caja nombre
+ return 0; //no avanza a commit
+ }
+ //cantidad
+c = document.fvalida.c.value;
+ c = validarEntero(c);
+ document.fvalida.c.value=c;
+ if (c==""){
+ alert("Tiene que introducir la cantidad ha registrar")
+ document.fvalida.c.focus();
+ return 0;
+}
+  function validarEntero(valor){
+valor = parseInt(valor)
+/* Se comprobará si el valor es un número */
+if (isNaN(valor)) {
+/* Si no lo es, se devuelve una cadena vacía */
+return "";
+}else{
+/* De lo contrario se devuelve el número */
+return valor;
+}
+}
+//Costo
+costo = document.fvalida.costo.value;
+ costo = validateDecimal(costo);
+ document.fvalida.costo.value=costo;
+ if (costo==""){
+ alert("Tiene que introducir el costo")
+ document.fvalida.costo.focus();
+ return 0;
+}
+function validateDecimal(valor) {
+    valor = parseFloat(valor)
+if (isNaN(valor)) {
+return "";
+}else{
+return valor;
+}
+}
+ //el formulario se envia usando el método submit() activándolo desde aquí
+ alert("Material Registrado");
+ document.fvalida.submit();
+}
+</script>
 	  <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -73,26 +127,26 @@
     </main>
  </div>
  <div class="col-12 col-lg-7 pt-2 pb-2">
-    <form >
+    <form name="fvalida"  method="get">
         <div class="form-group" align="left">
             <h1>Materiales</h1>
             <br><br> 
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre">
+                <input type="text" class="form-control" id="inputEmail3" name="nombre" placeholder="Nombre">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Cantidad</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad" name="c">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Costo</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="$">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="costo">
               </div>
             </div>
             <div class="form-group row">
@@ -100,13 +154,13 @@
               <div class="col-sm-5">
                
                 <a href="#">
-               <img src="imagenes/guardar.png">
+               <img src="imagenes/guardar.png" type="button" value="Enviar" onclick="valida_envia()">
               </div>
             </div>
             <br>
             <br>
              <div class="form-group row">
-              <input type="email" id="inputEmail3" placeholder="Nombre">
+              <input type="email" id="inputEmail3" placeholder="Nombre" onmouseOver="alert('Ingresa el nombre del material para buscar, eliminar o editar')">
               <div class="col-sm-2">
                 <a href="#">
                <img src="imagenes/buscar.png">
