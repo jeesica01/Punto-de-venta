@@ -10,7 +10,21 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	 <link rel="stylesheet" type="text/css" href="index.css">
 	<title>Inicio</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <style>
+  #toggle {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+  </style>
+  <script src="jquery-3.3.1.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+ 
+
+
+
 <body background="imagenes/fon.jpg" onLoad="window_onload()">
 	    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
@@ -29,7 +43,14 @@
 
     </nav>
 	
-
+<p align="center">Click para visualizar imagen</p>
+<div id="toggle" align="center"> <img src="imagenes/niño.jpg" align="center"> </div>
+ 
+<script>
+$( document ).click(function() {
+  $( "#toggle" ).toggle( "slide" );
+});
+</script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
