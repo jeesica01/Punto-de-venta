@@ -1,3 +1,14 @@
+
+#carouselExampleIndicators img{
+	max-height: 100vh;
+	object-fit: cover;
+}
+
+h1{
+	color:blue;
+}
+
+
 .text-Estilo{
 	color: #97c93e !important;
 }
@@ -8,7 +19,7 @@
 	height: 100px;
 }
 #main .carousel-inner img{
-	max-height: 100vh;
+	max-height: 200vh;
 	object-fit: cover;
 }
 #footer{
@@ -16,6 +27,10 @@
 }
 #footer a{
 	color: white;
+}
+#footer button{
+	background: linear-gradient(90deg,#0B173B,#08088A 25%,#5882FA);
+	color:white;
 }
 #carousel .overlay{
 	position: absolute;

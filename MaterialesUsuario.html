@@ -1,7 +1,7 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
+
   <script Language="JavaScript">
     
 <!--
@@ -9,7 +9,7 @@ function valida_envia()
 {
  if (document.fvalida.nombre.value.length==0)
 {
- alert("Escribe el nombre ha quien se le registrara el pedido");
+ alert("Escribe el nombre del material");
  document.fvalida.nombre.focus(); //ubica el cursor en la caja nombre
  return 0; //no avanza a commit
  }
@@ -18,7 +18,7 @@ c = document.fvalida.c.value;
  c = validarEntero(c);
  document.fvalida.c.value=c;
  if (c==""){
- alert("Tiene que introducir la cantidad")
+ alert("Tiene que introducir la cantidad ha registrar")
  document.fvalida.c.focus();
  return 0;
 }
@@ -33,21 +33,12 @@ return "";
 return valor;
 }
 }
-//Fecha
-var txtFecha = document.getElementById('fecha').value;
-
- if(!isNaN(txtFecha)){
-      alert('ERROR: Debe elegir una fecha');
-       document.fvalida.txtFecha.focus();
-      return false;
-    }
 //Costo
-
 costo = document.fvalida.costo.value;
  costo = validateDecimal(costo);
  document.fvalida.costo.value=costo;
  if (costo==""){
- alert("Introduce el costo")
+ alert("Tiene que introducir el costo")
  document.fvalida.costo.focus();
  return 0;
 }
@@ -59,142 +50,105 @@ return "";
 return valor;
 }
 }
-
-//Anticipo
-anticipo = document.fvalida.anticipo.value;
- anticipo = validateDecimal(anticipo);
- document.fvalida.anticipo.value=anticipo;
- if (anticipo==""){
- alert("")
- document.fvalida.anticipo.focus();
- return 0;
-}
-
-//Descripcion
-
-if(document.fvalida.d.value.length == "") { 
-alert("Por favor indique su nombre"); 
-document.fvalida.d.focus(); 
-return 0;
- }
-
  //el formulario se envia usando el método submit() activándolo desde aquí
- alert("Pedido Registrado");
+ alert("Material Registrado");
  document.fvalida.submit();
 }
 </script>
-
-    <!-- Required meta tags -->
+	  <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script src="js/bootstrap-datetimepicker.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Estilo.css">
-    <title>Pedidos</title>
+	 <link rel="stylesheet" type="text/css" href="index.css">
+     <link rel="stylesheet" type="text/css" href="Estilo.css">
+	<title>Materiales</title>
 </head>
-
 <body background="imagenes/fondo.jpg" data-spy="scroll" data-target=#navbar data-offset="57">
-   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-           <a class="navbar-brand"  href="adm.html" >
+            <a class="navbar-brand"  href="adm.html" >
                 <img src="imagenes/admin.png" alt="Administrador">
                 Administrador
             </a>
             <a class="navbar-brand"  href="user.html" >
                   <img src="imagenes/user.png" alt="Usuario" >
                   Usuario
-             </a>  
-          
+             </a>   
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-             <div class="collapse navbar-collapse" id="navbar">
+            <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ml-auto" align="center">
                     <li class="nav-item">
-                        <a class="nav-link" href="pedidos.html">
-                          <img src="imagenes/pedidos.png" alt="Administrador" >
+                        <a class="nav-link" href="pedidosUsuario.html">
+                          <img src="imagenes/pedidos.png" alt="Usuario" >
                       Pedidos
                      </a>
                     </li>
-                   <li class="nav-item">
-                        <a class="nav-link" href="ventas.html">
-                          <img src="imagenes/ventas.png" alt="Administrador" >
-                      Ventas
-                     </a>
-                    </li>
+                
                     <li class="nav-item">
-                        <a class="nav-link" href="Materiales.html">
-                        <img src="imagenes/materiales.png" alt="Administrador">
+                  
+                        <a class="nav-link" href="MaterialesUsuario.html">
+                        <img src="imagenes/materiales.png" alt="Usuario">
                        Materiales
                       </a>
                     </li>
-                      <li class="nav-item">
+                   <li class="nav-item">
                         <a class="nav-link" href="index.html">
                         <img src="imagenes/regresar.png" alt="Administrador">
                        Inicio
                       </a>
                     </li>
-                  
+
                 </ul>
             </div>
         </div>
     </nav>
 <br><br>  
-
  <section id="place-time">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-5 pl-0 pr-0">
                     <main id="main">
                       <div class="col-lg-8">
-                        <img class="d-block w-100" src="imagenes/c.gif" alt="Piñata 1" >
+                        <img class="d-block w-100" src="imagenes/m.gif" alt="Piñata 1" >
                       </div>
     </main>
  </div>
  <div class="col-12 col-lg-7 pt-2 pb-2">
-    <form  name="fvalida"  method="get">
-        <div class="form-group" align="center">
-            <h1>PEDIDOS</h1>
+    <form name="fvalida"  method="get">
+        <div class="form-group" align="left">
+            <h1>Materiales</h1>
             <br><br> 
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-5">
-              <input type="text" name="nombre" size="30 " maxlength="100" class="form-control" id="inputEmail3" placeholder="Nombre">
+                <input type="text" class="form-control" id="inputEmail3" name="nombre" placeholder="Nombre">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Cantidad</label>
               <div class="col-sm-3">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad"  name="c" size="3" maxlength="2" >
-              </div>
-            </div>
-            <div class="form-group row">
-                     <label for="fecha" class="col-sm-2 col-form-label">Fecha de entrega</label>
-              <div class="col-sm-3"> 
-    <input id="fecha" name="fecha" type="date" class="form-control">
-                
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Cantidad" name="c">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Costo</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="costo"   >
-              </div>
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Anticipo</label>
-              <div class="col-sm-2">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="anticipo">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="$" name="costo">
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
+     
               <div class="col-sm-5">
-                
-                <textarea id="inputEmail3" type="textarea" name="d">
-                </textarea>
+               
                 <a href="#">
                <img src="imagenes/guardar.png" type="button" value="Enviar" onclick="valida_envia()">
               </div>
@@ -202,7 +156,7 @@ return 0;
             <br>
             <br>
              <div class="form-group row">
-              <input type="email"id="inputEmail3" placeholder="Nombre" onmouseOver="alert('Ingresa el nombre a quien se le realizo para buscar, borrar o editar el Pedido')">
+              <input type="email" id="inputEmail3" placeholder="Nombre" onmouseOver="alert('Ingresa el nombre del material para buscar, eliminar o editar')">
               <div class="col-sm-2">
                 <a href="#">
                <img src="imagenes/buscar.png">
@@ -236,36 +190,24 @@ return 0;
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
-      <th scope="col">Fecha</th>
       <th scope="col">Costo</th>
-      <th scope="col">Anticipo</th>
-      <th scope="col">Descripcion</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Diana</th>
-      <td>1</td>
-      <td>13/05/2019</td>
-      <td>100</td>
-      <td>50</td>
-      <td>Frozen</td>
+      <th scope="row">Papel</th>
+      <td>10</td>
+      <td>5.50</td>
     </tr>
     <tr>
-      <th scope="row">Jessica</th>
+      <th scope="row">Pegamento líquido</th>
       <td>2</td>
-      <td>18/05/2019</td>
-      <td>200</td>
-      <td>100</td>
-      <td>Peppa y George</td>
+      <td>15.99</td>
     </tr>
     <tr>
-      <th scope="row">Chuyita</th>
-      <td>3</td>
-      <td>20/05/2019</td>
-      <td>300</td>
-      <td>200</td>
-      <td>Tortugas ninja</td>
+      <th scope="row">Periódico</th>
+      <td>5</td>
+      <td>3.40</td>
     </tr>
   </tbody>
 </table>
@@ -276,7 +218,7 @@ return 0;
 
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
